@@ -67,7 +67,7 @@ skills/
 
 ## 产物
 
-`pome-seed` 将产物落盘到 `.pome/<需求简称>/` 目录：
+`pome-seed` 将产物落盘到 `.pome/nursery/<需求简称>/` 目录（`nursery/` 存放当前进行中的产物）：
 
 | 文件 | 内容 |
 |---|---|
