@@ -16,6 +16,6 @@ README.md describes 5 skills, but only `skills/pome-seed/SKILL.md` is implemente
 
 ## Conventions
 
-- Skills write their products to `.pome/nursery/<需求简称>/` (e.g. `orchard.md`, `cultivation.md`). `nursery/` holds the currently-in-progress outputs. This is a working-output directory, not source.
+- Skills write their products to `.pome/nursery/<需求简称>/` (e.g. `orchard.md`). `<需求简称>` is a kebab-case English phrase. `nursery/` holds the currently-in-progress outputs. This is a working-output directory, not source.
 - SKILL.md is written in Chinese and follows the `pome-seed` structure: frontmatter, then `# <name>`, then 输入 / 规则 / 阶段 / 产物结构 / 执行流程 sections as applicable.
 - There is no build, test, or lint tooling in this repo.
