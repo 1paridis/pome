@@ -12,7 +12,15 @@ A collection of OpenCode agent skills for process-driven AI-assisted development
 
 ## Important: only `pome-seed` exists yet
 
-README.md describes 5 skills, but only `skills/pome-seed/SKILL.md` is implemented. `pome-trial`, `pome-plot`, `pome-grow`, `pome-reap` are planned but not written. Do not assume they exist; new skills must be created before being referenced.
+README.md plans 5 skills, but only `skills/pome-seed/SKILL.md` is implemented. `pome-trial`, `pome-plot`, `pome-grow`, and `pome-reap` are still planned. Do not assume they exist; create a skill before referencing it as implemented.
+
+## `pome-seed` design contract
+
+- `orchard.md` uses unnumbered Markdown headings as a function tree. The root counts as level 1; the tree is at most 4 levels deep, and a parent should normally have at most 7 direct children.
+- Keep the tree at user-visible or business-verifiable function granularity. Branch nodes contain headings only; every leaf contains a `功能说明` section describing what the function does, not how it is implemented.
+- Determine the tree through multiple interview rounds. Ask only high-priority questions whose prerequisite decisions are settled, normally no more than 5 per round. Pause for explicit user review after the function design; do not start technical design before approval.
+- Before technical design, inspect the actual project stack and related implementation. Add a concrete `技术方案` to every leaf without changing the approved function tree.
+- Treat an existing `.pome/nursery/<需求简称>/orchard.md` as protected history. Read it and wait for explicit instructions; never infer progress, fill gaps, rewrite, or modify it unprompted.
 
 ## Conventions
 
