@@ -18,7 +18,7 @@ pome 规划提供 5 个 skill，覆盖两条完整流程：
 | `pome-grow` | 开发/测试实现（共用） | 开发 + 测试 |
 | `pome-reap` | 归档（共用） | 开发 + 测试 |
 
-当前已实现 `pome-seed`、`pome-trial` 和 `pome-plot`；`pome-grow` 与 `pome-reap` 仍在规划中。
+当前 `pome-seed`、`pome-trial`、`pome-plot`、`pome-grow` 与 `pome-reap` 均已实现。
 
 ## 流程
 

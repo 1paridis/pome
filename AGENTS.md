@@ -12,7 +12,7 @@ A collection of OpenCode agent skills for process-driven AI-assisted development
 
 ## Implementation status
 
-`pome-seed`, `pome-trial`, and `pome-plot` are implemented. `pome-grow` and `pome-reap` are still planned. Do not assume a planned skill exists; create it before referencing it as implemented.
+`pome-seed`, `pome-trial`, `pome-plot`, `pome-grow`, and `pome-reap` are all implemented.
 
 ## `pome-seed` design contract
 
