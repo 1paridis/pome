@@ -12,7 +12,7 @@ A collection of OpenCode agent skills for process-driven AI-assisted development
 
 ## Implementation status
 
-`pome-seed` and `pome-trial` are implemented. `pome-plot`, `pome-grow`, and `pome-reap` are still planned. Do not assume a planned skill exists; create it before referencing it as implemented.
+`pome-seed`, `pome-trial`, and `pome-plot` are implemented. `pome-grow` and `pome-reap` are still planned. Do not assume a planned skill exists; create it before referencing it as implemented.
 
 ## `pome-seed` design contract
 
@@ -20,19 +20,19 @@ A collection of OpenCode agent skills for process-driven AI-assisted development
 - Keep the tree at user-visible or business-verifiable function granularity. Branch nodes contain headings only; every leaf contains a `功能说明` section describing what the function does, not how it is implemented.
 - Determine the tree through multiple interview rounds. Ask only high-priority questions whose prerequisite decisions are settled, normally no more than 5 per round. Pause for explicit user review after the function design; do not start technical design before approval.
 - Before technical design, inspect the actual project stack and related implementation. Add a concrete `技术方案` to every leaf without changing the approved function tree.
-- Treat an existing `.pome/nursery/<需求简称>/blueprint.md` as protected history. Read it and wait for explicit instructions; never infer progress, fill gaps, rewrite, or modify it unprompted.
+- Treat an existing `.pome/nursery/blueprint.md` as protected history. Read it and wait for explicit instructions; never infer progress, fill gaps, rewrite, or modify it unprompted.
 
 ## `pome-trial` design contract
 
-- Use `pome-trial` only for complex test needs or when the user explicitly requests a formal test design; simple low-risk checks should proceed directly without creating `test-case.md`.
+- Use `pome-trial` when the user explicitly requests a formal test design (test cases, scenarios, acceptance or regression). It only designs test cases; it does not execute tests, debug failures, write automation, or produce scheduling plans.
 - `test-case.md` uses unnumbered Markdown headings as a test design tree. Branches group test scopes or scenarios; every leaf is an independently executable and decidable test case.
 - Do not impose a fixed semantic tree depth or sibling limit. Keep the tree shallow where practical, select representative combinations instead of mechanical Cartesian products, and stop decomposition at the complete test-case level.
 - Every test-case leaf contains `前置条件`, `输入数据`, `执行步骤`, and `预期结果`. Branch nodes contain headings only.
 - Inspect the actual requirements, implementation, and existing tests before writing concrete cases. Determine the tree through dependency-aware interview rounds and pause for explicit user review after the design.
-- Treat an existing `.pome/nursery/<需求简称>/test-case.md` as protected history. A `blueprint.md` in the same directory may be read as input but must not be modified by trial.
+- Treat an existing `.pome/nursery/test-case.md` as protected history. A `blueprint.md` in the same directory may be read as input but must not be modified by trial.
 
 ## Conventions
 
-- Skills write their products to `.pome/nursery/<需求简称>/` (e.g. `blueprint.md`). `<需求简称>` is a kebab-case English phrase. `nursery/` holds the currently-in-progress outputs. This is a working-output directory, not source.
+- Skills write their products to `.pome/nursery/` (e.g. `blueprint.md`). `nursery/` holds the currently-in-progress outputs. This is a working-output directory, not source.
 - SKILL.md is written in Chinese and follows the `pome-seed` structure: frontmatter, then `# <name>`, then 输入 / 规则 / 阶段 / 产物结构 / 执行流程 sections as applicable.
 - There is no build, test, or lint tooling in this repo.
