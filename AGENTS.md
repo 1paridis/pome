@@ -16,7 +16,7 @@ A collection of OpenCode agent skills for process-driven AI-assisted development
 
 ## `pome-seed` design contract
 
-- `blueprint.md` uses unnumbered Markdown headings as a function tree. The root counts as level 1; the tree is at most 4 levels deep, and a parent should normally have at most 7 direct children.
+- `blueprint.md` uses unnumbered Markdown headings as a function tree. The root counts as level 1.
 - Keep the tree at user-visible or business-verifiable function granularity. Branch nodes contain headings only; every leaf contains a `功能说明` section describing what the function does, not how it is implemented.
 - The root node records a brief title, a supplementary note, and a `范围` (scope) listing what is in-scope and out-of-scope. Determine this boundary before decomposing; every node must stay within the confirmed scope.
 - Determine the tree through multiple interview rounds. Ask only high-priority questions whose prerequisite decisions are settled, normally no more than 5 per round. Pause for explicit user review after the function design; do not start technical design before approval.
