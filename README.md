@@ -2,13 +2,15 @@
 
 > **pome** -- 一枚石榴。石榴的籽本就是种子，果实落地不是结束，而是下一次生长的开始。pome 循着同样的心意：把 AI 辅助开发的流程，凝结成一粒粒独立可复用的 skill。
 >
-> 完整设想是 **Seed -> Plot -> Grow -> Reap**（播种 -> 规划 -> 生长 -> 收割）的流程化 skill 集合。当前已落地第一粒：`pome-seed`。
+> 完整设想是 **Seed -> Plot -> Grow -> Reap**（播种 -> 规划 -> 生长 -> 收割）的流程化 skill 集合。
 
 ## 当前 skill
 
 | Skill | 角色 |
 |---|---|
 | `pome-seed` | 需求设计起点：把需求收敛为一棵功能设计树 |
+| `pome-plot` | 实现计划生成：把设计树重排为可执行、可验收的实施阶段 |
+| `pome-grow` | 设计实现：根据 blueprint 编码，参考 plan 推进和验证 |
 
 ## pome-seed
 
@@ -39,12 +41,32 @@
 | 设计树 | 编号嵌套的功能方案与未决问题 |
 | 遗留问题 | 未讨论的节点及其问题（没有则省略） |
 
+## pome-grow
+
+当 blueprint 和 plan 已准备好、用户要求开始或继续实现时触发。它以 `.pome/nursery/blueprint.md` 作为要实现的设计方案，参考 `.pome/nursery/plan.md` 提供的文件组织、实施顺序和验收过程，并以现有项目的目录、命名、接口、错误处理、依赖和测试风格作为落地基线。plan 与设计、代码现实或项目惯例不符时可以调整执行过程，但不能覆盖或缩减 blueprint。
+
+### 工作流程
+
+1. **检查**：确认 blueprint 已收敛，plan 对应当前设计
+2. **勘察**：读取相邻功能，确认项目的结构、API、错误处理、依赖和测试惯例
+3. **实现**：根据 blueprint、沿用项目风格完成最小正确改动，优先参考 plan 的阶段顺序
+4. **验证**：参考 plan 的验收步骤并按实际改动补充检查，成功后同步任务进度
+5. **收口**：逐个核对 blueprint 叶子节点，检查遗漏、越界和 plan 偏差
+
+### 产物
+
+- 实现 blueprint 所需的生产代码、测试、配置和文档
+- 作为执行记录同步进度的 `.pome/nursery/plan.md`
+- 实现结果、验证状态、计划偏差和阻塞说明
+
 ## 使用
 
-skill 面向 [opencode](https://opencode.ai)。将 `skills/pome-seed/` 复制或链接到你的项目：
+skill 面向 [opencode](https://opencode.ai)。将需要的 skill 目录复制或链接到你的项目，例如：
 
 ```
 <project>/.agents/skills/pome-seed/SKILL.md
+<project>/.agents/skills/pome-plot/SKILL.md
+<project>/.agents/skills/pome-grow/SKILL.md
 ```
 
-之后在对话中直接提出需求即可触发，也可以显式说"用 pome-seed 做需求设计"。
+这些 skill 默认由用户显式调用，例如“用 pome-seed 做需求设计”、“用 pome-plot 制定实现计划”或“用 pome-grow 按计划实现”。
