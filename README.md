@@ -70,14 +70,14 @@ cp -r pome/skills/pome-seed <project>/.agents/skills/
 你：用 pome-seed 给 CLI 加一个 JSON 导出功能做需求设计
     （拿到设计树后反复「讨论 1.3」，直至树上没有遗留问题）
 
-你：用 pome-plot 制定实现计划
+你：用 pome-plot 
     （对生成的 plan 提意见，直到确认最终计划）
 
-你：用 pome-grow 开始实现
+你：用 pome-grow 
     （skill 完成一个阶段并报告后，你提交本次改动，
      再说「继续」进入下一阶段，直至最后一个阶段通过验收）
 
-你：用 pome-reap 归档当前需求
+你：用 pome-reap 
     （nursery 清空，产物移入 .pome/archive/<日期>/<需求名>/）
 ```
 
