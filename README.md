@@ -2,7 +2,7 @@
 
 > **pome** -- 一枚石榴。石榴的籽本就是种子，果实落地不是结束，而是下一次生长的开始。pome 循着同样的心意：把 AI 辅助开发的流程，凝结成一粒粒独立可复用的 skill。
 >
-> 完整设想是 **Seed -> Plot -> pome-grow -> Reap**（播种 -> 规划 -> 生长 -> 收割）的流程化 skill 集合。
+> 完整流程是 **Seed -> Plot -> pome-grow -> Reap**（播种 -> 规划 -> 生长 -> 收割）的流程化 skill 集合。
 
 ## 当前 skill
 
@@ -11,6 +11,7 @@
 | `pome-seed` | 需求设计起点：把需求收敛为一棵功能设计树 |
 | `pome-plot` | 实现计划生成：把设计树重排为可执行、可验收的实施阶段 |
 | `pome-grow` | 代码实现：以 blueprint 为目标，按 plan 阶段推进并在阶段间等待用户提交 |
+| `pome-reap` | 需求归档：把 nursery 产物收割到按日期和需求名称组织的 archive 目录 |
 
 ## pome-seed
 
@@ -65,6 +66,10 @@
 - 仅通过既有交付与验收勾选同步进度的 `.pome/nursery/plan.md`
 - 实现结果、验证状态和未完成阻塞说明；不额外维护执行日志或状态文件
 
+## pome-reap
+
+当用户要求收割或归档当前需求时触发。脚本从 `.pome/nursery/blueprint.md` 提取项目名称，把 nursery 下的全部内容移动到 `.pome/archive/<日期>/<项目名称>/`；nursery 没有文件时只返回提示。
+
 ## 使用
 
 skill 面向 [opencode](https://opencode.ai)。将需要的 skill 目录复制或链接到你的项目，例如：
@@ -73,6 +78,7 @@ skill 面向 [opencode](https://opencode.ai)。将需要的 skill 目录复制�
 <project>/.agents/skills/pome-seed/SKILL.md
 <project>/.agents/skills/pome-plot/SKILL.md
 <project>/.agents/skills/pome-grow/SKILL.md
+<project>/.agents/skills/pome-reap/SKILL.md
 ```
 
-这些 skill 默认由用户显式调用，例如“用 pome-seed 做需求设计”、“用 pome-plot 制定实现计划”或“用 pome-grow 按计划实现”。
+这些 skill 默认由用户显式调用，例如“用 pome-seed 做需求设计”、“用 pome-plot 制定实现计划”、“用 pome-grow 按计划实现”或“用 pome-reap 归档当前需求”。
