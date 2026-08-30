@@ -1,6 +1,6 @@
 ---
 name: pome-seed
-description: 需求设计起点。当用户提出新需求、需要需求拆解或功能设计时，将需求收敛为功能设计树。
+description: 只能手动加载
 disable-model-invocation: true
 ---
 
