@@ -1,6 +1,6 @@
 ---
 name: pome-plot
-description: 实现计划生成。当 .pome/nursery/blueprint.md 已存在、用户要求制定实现计划、拆解任务或准备开工时，把设计树转成可执行的分阶段实施方案。
+description: 只能手动加载
 disable-model-invocation: true
 ---
 

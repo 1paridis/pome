@@ -1,6 +1,6 @@
 ---
 name: pome-grow
-description: 根据已收敛的设计方案实现代码。当 .pome/nursery/blueprint.md 与 plan.md 已存在、用户要求开始实现、继续开发、按计划施工或完成某个阶段时，以 blueprint 为目标，按 plan 的实施阶段完成代码、测试和进度更新，并在阶段间等待用户提交。
+description: 只能手动加载
 disable-model-invocation: true
 ---
 
